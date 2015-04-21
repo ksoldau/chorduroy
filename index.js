@@ -186,7 +186,12 @@ function generateChordChart(instrument, chord, startFret, endFret, acc) {
     var numberOfNotHitStrings = instrument.strings.length - chord.length;
     if (chord.length === 0) {
         var leftOverStrings = instrument.strings.length;
-        return acc.concat(['x'].repeat(leftOverStrings));
+        var notesInFreqOrder = acc.concat(['x'].repeat(leftOverStrings));
+        var notesInStringOrder = [];
+        for (var i = 0; i < instrument.order.length; i++ ) {
+            notesInStringOrder.push(notesInFreqOrder[instrument.order[i]]);            
+        }
+        return notesInStringOrder;
     }
     else if (numberOfNotHitStrings < 0) {
         return null;
@@ -207,7 +212,7 @@ function generateChordChart(instrument, chord, startFret, endFret, acc) {
         var fingerPositionObj = {
             letter: chord[0], 
             string: instrument.strings[0], 
-            finger: intervalClass(fullLetters.indexOf(normalize(chord[0])), fullLetters.indexOf(instrument.strings[0]))
+            finger: intervalClass(fullLetters.indexOf(normalize(chord[0])), fullLetters.indexOf(instrument.strings[0])).mod(12)
         };
         var restOfInstrument = assign({}, instrument, {strings: instrument.strings.slice(1)});
         var restOfChord = chord.slice(1);

@@ -119,11 +119,13 @@ function drawChordChart(chord, instrument) {
     canvas.setAttribute('height', canvasHeight);
     var ctx = canvas.getContext('2d');
     canvas.style.backgroundColor = 'grey';//colorTheNote(chord.split(/(\s+)/)[0]);
+
+    // chord name 
     ctx.font = '24px sans-serif';
     ctx.fillStyle = "white"
     ctx.textBaseline = 'middle';
     ctx.textAlign = 'center';
-    ctx.fillText(chord, neckWidth/2, spaceAboveNeck/4);
+    ctx.fillText(formatName(chord), neckWidth/2, spaceAboveNeck/4);
 
     // neck 
     ctx.fillStyle = "lightgrey";
@@ -187,7 +189,7 @@ function drawChordChart(chord, instrument) {
 
             // note name
             ctx.fillStyle = "white"
-            ctx.fillText(positions[i].letter, stringX(i), circleY);
+            ctx.fillText(formatName(positions[i].letter), stringX(i), circleY);
 
             counter++;
         }
@@ -400,4 +402,22 @@ function generateChordChart(instrument, chord, startFret, endFret, acc) {
 
     }
 
+}
+
+function formatName(name) {
+  var accidentals = [
+    ["bb", '"\\ud834\\udd2b"'], 
+    ["b", '"\\u266d"'],
+    ["###", '"\\u266f\\ud834\\udd2a"'],
+    ["##", '"\\ud834\\udd2a"'],
+    ["#", '"\\u266f"'],
+  ]
+
+  var replaced = name;
+  for (var i = 0; i < accidentals.length; i++ ) {
+    var regex = new RegExp(accidentals[i][0], "g");
+    replaced = replaced.replace(regex, eval(accidentals[i][1]));
+  }
+
+  return replaced;
 }

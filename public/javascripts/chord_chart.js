@@ -406,6 +406,7 @@ function generateChordChart(instrument, chord, startFret, endFret, acc) {
 
 function formatName(name) {
   var accidentals = [
+    ["bbb", '"\\u266d\\ud834\\udd2b"'],
     ["bb", '"\\ud834\\udd2b"'], 
     ["b", '"\\u266d"'],
     ["###", '"\\u266f\\ud834\\udd2a"'],

@@ -53,10 +53,10 @@ var letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
 var fullLetters = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#']
 
 var chords = {
-    'M': ['M3', 'P5'],
-    'm': ['m3', 'P5'],
-    'aug': ['M3', 'A5'],
-    'dim': ['m3', 'd5']
+    'M': ['P1', 'M3', 'P5'],
+    'm': ['P1', 'm3', 'P5'],
+    'aug': ['P1', 'M3', 'A5'],
+    'dim': ['P1', 'm3', 'd5']
 }
 
 chords['7'] = chords['M'].concat(['m7']);
@@ -118,7 +118,7 @@ function drawChordChart(chord, instrument) {
     canvas.setAttribute('width', neckWidth);    
     canvas.setAttribute('height', canvasHeight);
     var ctx = canvas.getContext('2d');
-    canvas.style.backgroundColor = colorTheSound(chord.split(/(\s+)/)[0], true);
+    canvas.style.backgroundColor = 'grey';//colorTheNote(chord.split(/(\s+)/)[0]);
     ctx.font = '24px sans-serif';
     ctx.fillStyle = "white"
     ctx.textBaseline = 'middle';
@@ -158,6 +158,7 @@ function drawChordChart(chord, instrument) {
     ctx.textBaseline = 'middle';
     ctx.textAlign = 'center';
 
+    var counter = 0;
     for (var i = 0; i < positions.length; i++ ) {
         // circle
         var xLength = 20;
@@ -175,16 +176,20 @@ function drawChordChart(chord, instrument) {
             var circleY = ((fretLength * positions[i].fret) - fretLength/2) + spaceAboveNeck
             ctx.beginPath();
             ctx.arc(stringX(i), circleY, fretLength/4, 0, 2 * Math.PI, false);
-            ctx.fillStyle = colorTheSound(positions[i].letter);
+            chordQuality = chord.split(/(\s+)/)[2];
+            ctx.fillStyle = colorTheNote(counter);//intervals[chords[chordQuality][counter]]
             ctx.fill();
-            ctx.strokeStyle = "black"
-            ctx.lineWidth = 2;
+            var intervalQuality = chords[chordQuality][counter][0];
+            ctx.strokeStyle = colorTheNote(counter, true);//intervalQuality === 'P' ? colorTheNote(counter) : colorTheQuality(intervalQuality);
+            ctx.lineWidth = 3;
             ctx.stroke();
 
 
             // note name
             ctx.fillStyle = "white"
             ctx.fillText(positions[i].letter, stringX(i), circleY);
+
+            counter++;
         }
     }
 
@@ -216,29 +221,38 @@ function colorLuminance(hex, lum) {
   return rgb;
 }
 
-function colorTheSound(note, isChord) {
+function colorTheNote(position, isStroke) {
     var colors = [
       [2, 62, 76], // "C14D49", 
-      [14, 66, 81], // "CE6646", 
-      [23, 72, 87], // "DD7B3E", 
-      [45, 66, 90], // "E5BF4E", 
+      // [14, 66, 81], // "CE6646", 
+      // [23, 72, 87], // "DD7B3E", 
+      // [45, 66, 90], // "E5BF4E", 
       [104, 56, 75], // "70BF54", 
-      [152, 64, 75], // "44BF86", 
+      // [152, 64, 75], // "44BF86", 
       [184, 65, 75], // "42B6BF", 
-      [204, 66, 75], // "418CBF", 
-      [228, 59, 75], // "4E64BF", 
-      [260, 60, 86], // "8357DB", 
+      // [204, 66, 75], // "418CBF",   
+      // [228, 59, 75], // "4E64BF", 
+      // [260, 60, 86], // "8357DB", 
       [283, 61, 75], // "9E4ABF", 
-      [322, 51, 66] // "A85288"  
+      // [322, 51, 66], // "A85288"  
+      // [2, 62, 76] // "C14D49"
     ];
-    var hsb = colors[fullLetters.indexOf(normalize(note))];
+    var hsb = colors[position];
     var hue = hsb[0];
-    var lightness = (hsb[2]/100 * (2 - hsb[1]/100)) / 2;
-    var saturation = ((hsb[2]/100 * hsb[1]/100) / (1 - Math.abs(2 * lightness - 1)));// + (isChord ? -20 : 0);
+    var lightness = (hsb[2]/100 * (2 - hsb[1]/100)) / 2 * (isStroke ? .70 : 1);
+    var saturation = ((hsb[2]/100 * hsb[1]/100) / (1 - Math.abs(2 * lightness - 1)));
     return 'hsl(' + hue + ', ' + 100 * saturation + '%, ' + 100 * lightness + '%)';
 }
 
-
+function colorTheQuality(quality) {
+var colors = {
+      'm': '#ECC56D',
+      'M': '#D1AF61',
+      'A': '#856F3D',
+      'd': '#6B5931'
+    };
+    return colors[quality];
+}
 /// From generate_chords
 
 
@@ -293,7 +307,7 @@ function createChord(chordLetter, chordAccidental, quality) { // 'F', 'm'
 
     var chord = chords[quality];
 
-    notes.push(chordLetter + chordAccidental);
+    //notes.push(chordLetter + chordAccidental);
 
     chord.forEach( function (interval) {
         var num = rootNum + intervals[ interval ];

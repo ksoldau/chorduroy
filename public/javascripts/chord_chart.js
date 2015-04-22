@@ -1,16 +1,3 @@
-var exampleChordx = {'Ab aug': 
-   [ { letter: 'C', string: 'G', fret: 5 },
-     'x',
-     { letter: 'Ab', string: 'E', fret: 4 },
-     { letter: 'E', string: 'A', fret: 5 } ], 
- 'B# M': 
-   [ { letter: 'F##', string: 'G', fret: 0 },
-     { letter: 'B#', string: 'C', fret: 0 },
-     { letter: 'D##', string: 'E', fret: 0 },
-     'x' ], 
-   'Ab m': 'no chord chart available for chord'
-};
-
 var exampleChords = { 'Ab 7': 'no chord chart available for chord',
   'Ab M': 'no chord chart available for chord',
   'Ab m': 'no chord chart available for chord',
@@ -89,11 +76,7 @@ var exampleChords = { 'Ab 7': 'no chord chart available for chord',
   'B# m7': 'no chord chart available for chord',
   'B# M7': 'no chord chart available for chord',
   'B# aug7': 'no chord chart available for chord',
-  'B# dim7': 
-   [ { letter: 'F###', string: 'G', fret: 1 },
-     { letter: 'B#', string: 'C', fret: 0 },
-     { letter: 'D##', string: 'E', fret: 0 },
-     { letter: 'A', string: 'A', fret: 0 } ],
+  'B# dim7': 'no chord chart available for chord',
   'B# m7dim5': 'no chord chart available for chord',
   'Cb 7': 'no chord chart available for chord',
   'Cb M': 'no chord chart available for chord',
@@ -133,11 +116,7 @@ var exampleChords = { 'Ab 7': 'no chord chart available for chord',
      { letter: 'C', string: 'C', fret: 0 },
      { letter: 'E', string: 'E', fret: 0 },
      { letter: 'Bb', string: 'A', fret: 1 } ],
-  'C dim7': 
-   [ { letter: 'G#', string: 'G', fret: 1 },
-     { letter: 'C', string: 'C', fret: 0 },
-     { letter: 'E', string: 'E', fret: 0 },
-     { letter: 'B##', string: 'A', fret: 4 } ],
+  'C dim7': 'no chord chart available for chord',
   'C m7dim5': 'no chord chart available for chord',
   'C# 7': 
    [ { letter: 'G#', string: 'G', fret: 1 },
@@ -180,9 +159,9 @@ var exampleChords = { 'Ab 7': 'no chord chart available for chord',
      { letter: 'E#', string: 'E', fret: 1 },
      { letter: 'Bbb', string: 'A', fret: 0 } ],
   'C# dim7': 
-   [ { letter: 'G##', string: 'G', fret: 2 },
+   [ { letter: 'G', string: 'G', fret: 0 },
      { letter: 'C#', string: 'C', fret: 1 },
-     { letter: 'E#', string: 'E', fret: 1 },
+     { letter: 'E', string: 'E', fret: 0 },
      { letter: 'B#', string: 'A', fret: 3 } ],
   'C# m7dim5': 
    [ { letter: 'G', string: 'G', fret: 0 },
@@ -230,9 +209,9 @@ var exampleChords = { 'Ab 7': 'no chord chart available for chord',
      { letter: 'F', string: 'E', fret: 1 },
      { letter: 'Cb', string: 'A', fret: 2 } ],
   'Db dim7': 
-   [ { letter: 'A', string: 'G', fret: 2 },
+   [ { letter: 'A##', string: 'G', fret: 4 },
      { letter: 'Db', string: 'C', fret: 1 },
-     { letter: 'F', string: 'E', fret: 1 },
+     { letter: 'Fb', string: 'E', fret: 0 },
      { letter: 'C##', string: 'A', fret: 5 } ],
   'Db m7dim5': 
    [ { letter: 'A##', string: 'G', fret: 4 },
@@ -280,9 +259,9 @@ var exampleChords = { 'Ab 7': 'no chord chart available for chord',
      { letter: 'F#', string: 'E', fret: 2 },
      { letter: 'Cbb', string: 'A', fret: 1 } ],
   'D dim7': 
-   [ { letter: 'Ab', string: 'G', fret: 1 },
+   [ { letter: 'A#', string: 'G', fret: 3 },
      { letter: 'D', string: 'C', fret: 2 },
-     { letter: 'F#', string: 'E', fret: 2 },
+     { letter: 'F', string: 'E', fret: 1 },
      { letter: 'C#', string: 'A', fret: 4 } ],
   'D m7dim5': 
    [ { letter: 'A#', string: 'G', fret: 3 },
@@ -330,9 +309,9 @@ var exampleChords = { 'Ab 7': 'no chord chart available for chord',
      { letter: 'F##', string: 'E', fret: 3 },
      { letter: 'Cbbb', string: 'A', fret: 0 } ],
   'D# dim7': 
-   [ { letter: 'Abb', string: 'G', fret: 1 },
+   [ { letter: 'A', string: 'G', fret: 2 },
      { letter: 'D#', string: 'C', fret: 3 },
-     { letter: 'F##', string: 'E', fret: 3 },
+     { letter: 'F#', string: 'E', fret: 2 },
      { letter: 'C', string: 'A', fret: 3 } ],
   'D# m7dim5': 
    [ { letter: 'A', string: 'G', fret: 2 },
@@ -371,11 +350,7 @@ var exampleChords = { 'Ab 7': 'no chord chart available for chord',
      { letter: 'Eb', string: 'C', fret: 3 },
      { letter: 'G', string: 'E', fret: 3 },
      { letter: 'Db', string: 'A', fret: 4 } ],
-  'Eb dim7': 
-   [ { letter: 'B', string: 'G', fret: 4 },
-     { letter: 'Eb', string: 'C', fret: 3 },
-     { letter: 'G', string: 'E', fret: 3 },
-     { letter: 'D##', string: 'A', fret: 5 } ],
+  'Eb dim7': 'no chord chart available for chord',
   'Eb m7dim5': 'no chord chart available for chord',
   'E 7': 
    [ { letter: 'B', string: 'G', fret: 4 },
@@ -464,9 +439,9 @@ var exampleChords = { 'Ab 7': 'no chord chart available for chord',
      { letter: 'G##', string: 'E', fret: 5 },
      { letter: 'Dbbb', string: 'A', fret: 2 } ],
   'E# dim7': 
-   [ { letter: 'Bbb', string: 'G', fret: 2 },
+   [ { letter: 'B', string: 'G', fret: 4 },
      { letter: 'E#', string: 'C', fret: 5 },
-     { letter: 'G##', string: 'E', fret: 5 },
+     { letter: 'G#', string: 'E', fret: 4 },
      { letter: 'D', string: 'A', fret: 5 } ],
   'E# m7dim5': 
    [ { letter: 'B', string: 'G', fret: 4 },
@@ -531,11 +506,7 @@ var exampleChords = { 'Ab 7': 'no chord chart available for chord',
      { letter: 'A', string: 'E', fret: 5 },
      { letter: 'E', string: 'A', fret: 5 } ],
   'F aug7': 'no chord chart available for chord',
-  'F dim7': 
-   [ { letter: 'Cb', string: 'G', fret: 4 },
-     { letter: 'F', string: 'C', fret: 5 },
-     { letter: 'A', string: 'E', fret: 5 },
-     { letter: 'E##', string: 'A', fret: 3 } ],
+  'F dim7': 'no chord chart available for chord',
   'F m7dim5': 'no chord chart available for chord',
   'F# 7': 'no chord chart available for chord',
   'F# M': 
@@ -652,11 +623,47 @@ function normalize(note) {
         return note;
     }
 }
+// from http://www.sitepoint.com/javascript-generate-lighter-darker-color/
+function colorLuminance(hex, lum) {
 
+  // validate hex string
+  hex = String(hex).replace(/[^0-9a-f]/gi, '');
+  if (hex.length < 6) {
+    hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
+  }
+  lum = lum || 0;
 
+  // convert to decimal and change luminosity
+  var rgb = "#", c, i;
+  for (i = 0; i < 3; i++) {
+    c = parseInt(hex.substr(i*2,2), 16);
+    c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
+    rgb += ("00"+c).substr(c.length);
+  }
 
-function colorTheSound(note) {
-    return Math.floor(1398101 * (0.5 + fullLetters.indexOf(normalize(note)))).toString(16).substring(0, 3);
+  return rgb;
+}
+
+function colorTheSound(note, isChord) {
+    var colors = [
+      [2, 62, 76], // "C14D49", 
+      [14, 66, 81], // "CE6646", 
+      [23, 72, 87], // "DD7B3E", 
+      [45, 66, 90], // "E5BF4E", 
+      [104, 56, 75], // "70BF54", 
+      [152, 64, 75], // "44BF86", 
+      [184, 65, 75], // "42B6BF", 
+      [204, 66, 75], // "418CBF", 
+      [228, 59, 75], // "4E64BF", 
+      [260, 60, 86], // "8357DB", 
+      [283, 61, 75], // "9E4ABF", 
+      [322, 51, 66] // "A85288"  
+    ];
+    var hsb = colors[fullLetters.indexOf(normalize(note))];
+    var hue = hsb[0];
+    var lightness = (hsb[2]/100 * (2 - hsb[1]/100)) / 2;
+    var saturation = ((hsb[2]/100 * hsb[1]/100) / (1 - Math.abs(2 * lightness - 1)));// + (isChord ? -20 : 0);
+    return 'hsl(' + hue + ', ' + 100 * saturation + '%, ' + 100 * lightness + '%)';
 }
 
 var stringCount = 4;
@@ -674,7 +681,6 @@ window.onload = function() {
     var counter = 1;
     for (var chord in exampleChords) {
         if (exampleChords[chord] != 'no chord chart available for chord') {
-            console.log(chord);
             var canvas = drawChordChart(chord);
             document.getElementById('chord-charts').appendChild(canvas);
             counter++;
@@ -689,25 +695,20 @@ function drawChordChart(chord) {
     canvas.setAttribute('width', neckWidth);    
     canvas.setAttribute('height', canvasHeight);
     var ctx = canvas.getContext('2d');
-    console.log(normalize(chord.split(/(\s+)/)[0]));
-    if (chord === 'A m') {
-        debugger;
-    }
-    canvas.style.backgroundColor = "#" + colorTheSound(chord.split(/(\s+)/)[0]);
+    canvas.style.backgroundColor = colorTheSound(chord.split(/(\s+)/)[0], true);
 
     // neck 
-    ctx.fillStyle = "lavender";
+    ctx.fillStyle = "lightgrey";
     ctx.fillRect(0, spaceAboveNeck, neckWidth, neckHeight);
 
     // frets 
     var fretLineWidth = 2;
-    ctx.fillStyle = "orange";
     for (var i = 0; i < fretCount; i++) {
         var fretY = (i * (fretLength - fretLineWidth/2)) + spaceAboveNeck;
         ctx.beginPath();
         ctx.moveTo(0, fretY);
         ctx.lineTo(neckWidth, fretY);
-        ctx.strokeStyle = "orange";
+        ctx.strokeStyle = "grey";
         ctx.stroke();
     } 
 
@@ -746,8 +747,12 @@ function drawChordChart(chord) {
             var circleY = ((fretLength * positions[i].fret) - fretLength/2) + spaceAboveNeck
             ctx.beginPath();
             ctx.arc(stringX(i), circleY, fretLength/4, 0, 2 * Math.PI, false);
-            ctx.fillStyle = 'black'; //'#' + colorTheSound(positions[i].letter);
+            ctx.fillStyle = colorTheSound(positions[i].letter);
             ctx.fill();
+            ctx.strokeStyle = "black"
+            ctx.lineWidth = 2;
+            ctx.stroke();
+
 
             // note name
             ctx.fillStyle = "white"
